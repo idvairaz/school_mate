@@ -1,13 +1,19 @@
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/school_mate
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
   liquibase:
     enabled: false
   jpa:
     hibernate:
-      ddl-auto: none
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      ddl-auto: create-drop
+    show-sql: true
+#  autoconfigure:
+#    exclude:
+#      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+#      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
 
 # Настройки для Swagger
 springdoc:

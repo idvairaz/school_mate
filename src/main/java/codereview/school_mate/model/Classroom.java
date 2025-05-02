@@ -17,5 +17,5 @@ public class Classroom {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String number;  // Номер аудитории (например, "101")
+    private String number;
 }

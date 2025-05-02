@@ -7,8 +7,7 @@ import jakarta.persistence.Table;
 import jakarta. persistence.GenerationType;
 import jakarta.persistence.Column;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
+
 import java.util.Set;
 import lombok. Data;
 import lombok. EqualsAndHashCode;
@@ -16,20 +15,18 @@ import lombok. EqualsAndHashCode;
 @Entity
 @Data
 @Table(name = "school_classes")
-@EqualsAndHashCode(of = {"id"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class SchoolClass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToMany
-    @JoinTable(
-            name = "class_teacher",
-            joinColumns = @JoinColumn(name = "class_id"),
-            inverseJoinColumns = @JoinColumn(name = "teacher_id")
-    )
+    @ManyToMany(mappedBy = "classes")
+    @EqualsAndHashCode.Exclude
     private Set<Teacher> teachers;
+
 }

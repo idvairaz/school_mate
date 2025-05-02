@@ -4,16 +4,20 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta. persistence.GenerationType;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import lombok. Data;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import java.util.Set;
 
 @Entity
 @Data
-@Table(name = "students")
-public class Student {
+@Table(name = "parent")
+@EqualsAndHashCode(of = {"id"})
+public class Parent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,11 +31,10 @@ public class Student {
     @Column(name = "patronymic", nullable = false)
     private String patronymic;
 
-    @ManyToOne
-    @JoinColumn(name = "class_id", nullable = false)
-    private SchoolClass schoolClass;
 
-    @ManyToOne
-    @JoinColumn(name = "parent_id")
-    private Parent parent;
+    @Column(name = "contacts", nullable = false)
+    private String contacts;
+
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Student> children;
 }
