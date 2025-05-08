@@ -1,16 +1,22 @@
 package codereview.school_mate.dto;
 
+import codereview.school_mate.model.Student;
+import codereview.school_mate.model.Subject;
+import codereview.school_mate.model.Teacher;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Data
-public class ReportDto {
-
+@AllArgsConstructor
+@NoArgsConstructor
+public class ReportResponseDto {
     private Long id;
-    private String subject;
-    private String teacher;
+    private Subject subject;
+    private Teacher teacher;
+    private Student student;
     private LocalDate date;
-    private String student;
     private String message;
 }
