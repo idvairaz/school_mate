@@ -12,6 +12,7 @@ import codereview.school_mate.service.serviceImpl.TeacherServiceImpl;
 import org.hibernate.exception.ConstraintViolationException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
-
+//@Disabled("Временно отключено для отладки зависимостей")
 @SpringBootTest
 @Testcontainers
 class TeacherServiceTest {

@@ -4,6 +4,7 @@ import codereview.school_mate.dto.ParentResponseDto;
 import codereview.school_mate.dto.StudentRequestDto;
 import codereview.school_mate.service.ParentService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -36,6 +37,7 @@ import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.hamcrest.Matchers.hasSize;
 
+//@Disabled("Временно отключено для отладки зависимостей")
 @WebMvcTest(ParentController.class)
 class ParentControllerTest {
 

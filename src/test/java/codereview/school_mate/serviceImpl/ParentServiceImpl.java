@@ -8,6 +8,7 @@ import codereview.school_mate.repository.ParentRepository;
 import codereview.school_mate.service.serviceImpl.ParentServiceImpl;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -25,7 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-
+//@Disabled("Временно отключено для отладки зависимостей")
 @SpringBootTest
 @Testcontainers
 class ParentServiceTest {

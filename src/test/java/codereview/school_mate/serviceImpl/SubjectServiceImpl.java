@@ -12,6 +12,7 @@ import codereview.school_mate.repository.StudentRepository;
 import codereview.school_mate.service.serviceImpl.StudentServiceImpl;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,7 +28,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-
+//@Disabled("Временно отключено для отладки зависимостей")
 @SpringBootTest
 @Testcontainers
 class StudentServiceImplTest {

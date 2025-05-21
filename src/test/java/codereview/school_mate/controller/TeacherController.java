@@ -6,6 +6,7 @@ import codereview.school_mate.dto.TeacherResponseDto;
 import codereview.school_mate.service.TeacherService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -26,6 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
+//@Disabled("Временно отключено для отладки зависимостей")
 @ExtendWith(MockitoExtension.class)
 class TeacherControllerTest {
 
