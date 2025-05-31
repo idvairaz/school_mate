@@ -14,6 +14,9 @@ services:
       - SPRING_LIQUIBASE_ENABLED=false
       - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
       - SPRING_JPA_SHOW_SQL=true
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_LIFETIME_ACCESS=${JWT_LIFETIME_ACCESS}
+      - JWT_LIFETIME_REFRESH=${JWT_LIFETIME_REFRESH}
     depends_on:
       - school_mate_db
     networks:

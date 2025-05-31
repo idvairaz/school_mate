@@ -4,10 +4,7 @@ import codereview.school_mate.dto.request.JwtRequest;
 import codereview.school_mate.dto.request.registration.ParentRegistrationRequestDto;
 import codereview.school_mate.dto.request.registration.StudentRegistrationRequestDto;
 import codereview.school_mate.dto.request.registration.TeacherRegistrationRequestDto;
-import codereview.school_mate.dto.responce.JwtResponse;
-import codereview.school_mate.dto.responce.ParentResponseDto;
-import codereview.school_mate.dto.responce.StudentResponseDto;
-import codereview.school_mate.dto.responce.TeacherResponseDto;
+import codereview.school_mate.dto.responce.*;
 import codereview.school_mate.service.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -15,14 +12,14 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
+@Slf4j
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
@@ -84,6 +81,17 @@ public class AuthController {
         return ResponseEntity.status(HttpStatus.CREATED).body(authService.createNewTeacher(teacherRegistrationRequestDto));
     }
 
+    @Operation(summary = "Получить данные пользователя", description = "Выдает данные пользователя")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Данные о пользователе предоставлены"),
+            @ApiResponse(responseCode = "401", description = "Пользователь не авторизован")
+    })
+    @GetMapping("/user")
+    @ResponseStatus(HttpStatus.OK)
+    public UserResponseDto getUser(Principal principal){
+        log.info("GET /auth/user username = {}", principal.getName());
+        return authService.getUser(principal.getName());
+    }
 //    @PostMapping("/signup/admin")
 //    public ResponseEntity<UserDto> createNewStudent(@RequestBody StudentRegistrationRequestDto studentRegistrationRequestDto) {
 //        return ResponseEntity.ok(authService.createNewUser(studentRegistrationRequestDto));
