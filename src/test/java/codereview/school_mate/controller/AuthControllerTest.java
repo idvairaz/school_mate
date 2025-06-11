@@ -83,7 +83,7 @@ public class AuthControllerTest {
         TeacherResponseDto responseDto = new TeacherResponseDto();
         responseDto.setId(1L);
         responseDto.setName("John");
-        responseDto.setLastName("Doe");
+        responseDto.setSurname("Doe");
         responseDto.setPatronymic("Smith");
 
         when(authService.createNewTeacher(any(TeacherRegistrationRequestDto.class))).thenReturn(responseDto);

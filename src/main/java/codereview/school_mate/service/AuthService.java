@@ -16,7 +16,6 @@ import jakarta.servlet.http.HttpServletRequest;
 public interface AuthService {
     JwtResponse createAuthToken(JwtRequest authRequest);
     JwtResponse refreshToken(HttpServletRequest request);
-
     StudentResponseDto createNewStudent(StudentRegistrationRequestDto studentRegistrationRequestDto);
     ParentResponseDto createNewParent(ParentRegistrationRequestDto parentRegistrationRequestDto);
     TeacherResponseDto createNewTeacher(TeacherRegistrationRequestDto teacherRegistrationRequestDto);

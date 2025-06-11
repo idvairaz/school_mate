@@ -104,7 +104,7 @@ class TeacherServiceTest {
         assertNotNull(result);
         assertEquals(teacher.getId(), result.getId());
         assertEquals(teacher.getName(), result.getName());
-        assertEquals(teacher.getSurname(), result.getLastName());
+        assertEquals(teacher.getSurname(), result.getSurname());
     }
 
     @Test
@@ -124,13 +124,13 @@ class TeacherServiceTest {
 
         TeacherRequestDto updateRequest = new TeacherRequestDto();
         updateRequest.setName("Updated");
-        updateRequest.setLastName("Name");
+        updateRequest.setSurname("Name");
         updateRequest.setPatronymic("Patronymic");
 
         TeacherResponseDto result = teacherService.updateTeacher(teacher.getId(), updateRequest);
 
         assertEquals("Updated", result.getName());
-        assertEquals("Name", result.getLastName());
+        assertEquals("Name", result.getSurname());
         assertEquals("Patronymic", result.getPatronymic());
     }
 
@@ -202,7 +202,7 @@ class TeacherServiceTest {
         TeacherResponseDto result = teacherService.updateTeacher(teacher.getId(), updateRequest);
 
         assertEquals("UpdatedOnly", result.getName());
-        assertEquals(originalLastName, result.getLastName());
+        assertEquals(originalLastName, result.getSurname());
         assertEquals(originalPatronymic, result.getPatronymic());
     }
 
@@ -241,8 +241,9 @@ class TeacherServiceTest {
     private Teacher createTestTeacher() {
         Teacher teacher = new Teacher();
         teacher.setName("Teacher_" + counter.getAndIncrement());
-        teacher.setSurname("Lastname_" + counter.getAndIncrement());
-        teacher.setPatronymic("Midname_" + counter.getAndIncrement());
+        teacher.setSurname("Surname_" + counter.getAndIncrement());
+        teacher.setPatronymic("Patronymic_" + counter.getAndIncrement());
+
         return teacherRepository.save(teacher);
     }
 

@@ -24,7 +24,7 @@ public class TeacherRequestDto {
 
     @NotBlank(message = "Фамилия не может быть пустой")
     @Size(min = 2, max = 50, message = "Фамилия должна быть от 2 до 50 символов")
-    private String lastName;
+    private String surname;
 
     @Size(max = 50, message = "Отчество не должно превышать 50 символов")
     private String patronymic;

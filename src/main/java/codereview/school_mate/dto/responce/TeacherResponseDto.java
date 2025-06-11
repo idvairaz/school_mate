@@ -14,7 +14,7 @@ import java.util.Set;
 public class TeacherResponseDto {
     private Long id;
     private String name;
-    private String lastName;
+    private String surname;
     private String patronymic;
     private Set<SubjectResponseDto> subjects;
 }

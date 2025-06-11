@@ -73,7 +73,7 @@ class TeacherControllerTest {
         TeacherResponseDto responseDto = new TeacherResponseDto();
         responseDto.setId(1L);
         responseDto.setName("Dmitri");
-        responseDto.setLastName("Smirnov");
+        responseDto.setSurname("Smirnov");
         responseDto.setPatronymic("Olegovich");
 
         when(teacherService.findByIdTeacher(1L)).thenReturn(responseDto);
@@ -88,13 +88,13 @@ class TeacherControllerTest {
     void update_ShouldReturnUpdatedTeacher() throws Exception {
         TeacherRequestDto requestDto = new TeacherRequestDto();
         requestDto.setName("Updated");
-        requestDto.setLastName("Teacher");
+        requestDto.setSurname("Teacher");
         requestDto.setPatronymic("Patronymic");
 
         TeacherResponseDto responseDto = new TeacherResponseDto();
         responseDto.setId(1L);
         responseDto.setName("Updated");
-        responseDto.setLastName("Teacher");
+        responseDto.setSurname("Teacher");
         responseDto.setPatronymic("Patronymic");
 
         when(teacherService.updateTeacher(eq(1L), any(TeacherRequestDto.class))).thenReturn(responseDto);
@@ -115,7 +115,7 @@ class TeacherControllerTest {
         TeacherResponseDto responseDto = new TeacherResponseDto();
         responseDto.setId(1L);
         responseDto.setName("Ivan");
-        responseDto.setLastName("Ivanov");
+        responseDto.setSurname("Ivanov");
         responseDto.setSubjects(Set.of(subjectDto));
 
         when(teacherService.addSubjectToTeacher(1L, 1L)).thenReturn(responseDto);

@@ -144,7 +144,6 @@ public class AuthServiceImpl implements AuthService {
         return teacherService.createTeacher(teacherRegistrationRequestDto, user);
     }
 
-
     @Override
     public UserResponseDto getUser(String username) {
         User user = userService.findByUsername(username)

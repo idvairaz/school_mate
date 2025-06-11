@@ -95,7 +95,7 @@ class StudentServiceTest {
         StudentRegistrationRequestDto request = new StudentRegistrationRequestDto();
         request.setName("New");
         request.setSurname("Student");
-        request.setPatronymic("TestMiddleName");
+        request.setPatronymic("TestPatronymic");
         request.setSchoolClassId(schoolClass.getId());
         User user =createUser();
 
@@ -104,7 +104,7 @@ class StudentServiceTest {
         assertNotNull(result.getId());
         assertEquals("New", result.getName());
         assertEquals("Student", result.getSurname());
-        assertEquals("TestMiddleName", result.getPatronymic());
+        assertEquals("TestPatronymic", result.getPatronymic());
 //        assertEquals(parent.getId(), result.getParent().getId());
 //        assertEquals(schoolClass.getId(), result.getSchoolClass().getId());
     }
@@ -140,7 +140,8 @@ class StudentServiceTest {
         StudentRequestDto updateRequest = new StudentRequestDto();
         updateRequest.setName("Updated");
         updateRequest.setSurname("Student");
-        updateRequest.setPatronymic("TestMiddleName");
+
+        updateRequest.setPatronymic("TestPatronymic");
         updateRequest.setParentId(newParent.getId());
         updateRequest.setSchoolClassId(newClass.getId());
 
@@ -169,7 +170,8 @@ class StudentServiceTest {
         StudentRegistrationRequestDto request = new StudentRegistrationRequestDto();
         request.setName("New");
         request.setSurname("Student");
-        request.setPatronymic("TestMiddleName");
+        request.setPatronymic("TestPatronymic");
+
 //        request.setParentId(nonExistentParentId);
         request.setSchoolClassId(schoolClass.getId());
 
@@ -183,7 +185,8 @@ class StudentServiceTest {
         StudentRegistrationRequestDto request = new StudentRegistrationRequestDto();
         request.setName("New");
         request.setSurname("Student");
-        request.setPatronymic("TestMiddleName");
+        request.setPatronymic("TestPatronymic");
+
         request.setSchoolClassId(nonExistentClassId);
         User user = new User();
         user.setUsername("student");
@@ -273,8 +276,8 @@ class StudentServiceTest {
         long id = counter.getAndIncrement();
         Parent parent = new Parent();
         parent.setName("Parent_" + id);
-        parent.setSurname("LastName_" + id);
-        parent.setPatronymic("MiddleName_" + id);
+        parent.setSurname("Surname_" + id);
+        parent.setPatronymic("Patronymic_" + id);
         parent.setContacts("parent_" + id + "@test.com");
         return parentRepository.save(parent);
     }
@@ -305,8 +308,9 @@ class StudentServiceTest {
 
         Student student = new Student();
         student.setName("Student_" + counter.getAndIncrement());
-        student.setSurname("LastName_" + counter.getAndIncrement());
-        student.setPatronymic("MiddleName_" + counter.getAndIncrement());
+        student.setSurname("Surname_" + counter.getAndIncrement());
+        student.setPatronymic("Patronymic_" + counter.getAndIncrement());
+
 //        student.setParent(parent);
         student.setSchoolClass(schoolClass);
         student.setUser(user);

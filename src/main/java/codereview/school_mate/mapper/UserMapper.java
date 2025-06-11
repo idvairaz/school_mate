@@ -13,7 +13,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface UserMapper {
     RegistrationRequestDto studentDtoToRegistrationDto(StudentRegistrationRequestDto studentRegistrationRequestDto);
-
+  
     RegistrationRequestDto parentDtoToRegistrationDto(ParentRegistrationRequestDto parentRegistrationRequestDto);
 
     RegistrationRequestDto teacherDtoToRegistrationDto(TeacherRegistrationRequestDto teacherRegistrationRequestDto);
