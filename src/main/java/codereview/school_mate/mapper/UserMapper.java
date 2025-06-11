@@ -6,6 +6,7 @@ import codereview.school_mate.dto.request.registration.StudentRegistrationReques
 import codereview.school_mate.dto.request.registration.TeacherRegistrationRequestDto;
 import codereview.school_mate.dto.responce.UserResponseDto;
 import codereview.school_mate.model.User;
+import codereview.school_mate.dto.request.registration.AdminRegistrationRequestDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -16,6 +17,8 @@ public interface UserMapper {
     RegistrationRequestDto parentDtoToRegistrationDto(ParentRegistrationRequestDto parentRegistrationRequestDto);
 
     RegistrationRequestDto teacherDtoToRegistrationDto(TeacherRegistrationRequestDto teacherRegistrationRequestDto);
+  
+    RegistrationRequestDto adminDtoToRegistrationDto(AdminRegistrationRequestDto adminRegistrationRequestDto);
 
     @Mapping(target = "role", source = "role.name")
     UserResponseDto userToUserResponseDto(User user);
